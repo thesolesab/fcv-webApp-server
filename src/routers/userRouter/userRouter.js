@@ -6,7 +6,7 @@ const userRouter = new Router()
 userRouter.get('/all', userController.getAll)
 userRouter.get('/:id', userController.getOne)
 userRouter.put('/:id', userController.update)
-userRouter.delete('/:id', userController.delete)
+userRouter.put('/updateMany', userController.updateMany)
 
 
 export default userRouter

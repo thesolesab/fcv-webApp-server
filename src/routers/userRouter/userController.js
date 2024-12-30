@@ -27,9 +27,10 @@ class UserController {
             res.status(500).json(e)
         }
     }
-    async delete(req, res) {
+    async updateMany(req, res) {
         try {
-
+            const updatedUsers = await UserService.updateMany(req.body)
+            return res.json(updatedUsers)
         } catch (e) {
             res.status(500).json(e)
         }

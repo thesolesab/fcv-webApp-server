@@ -1,10 +1,6 @@
 import User from "../../models/User.js"
 
 class UserService {
-    getAll() {
-        const users = User.find()
-        return users
-    }
     getOne(id) {
         if (!id) return 'Id не указан'
         const user = User.findOne({ chatId: id })
@@ -13,15 +9,23 @@ class UserService {
             )
         return user
     }
-    async update(userData) {
+    update(userData) {
         if (!userData._id) {
             throw new Error('Не указан ID')
         }
 
-        const updatedUser = await User.findByIdAndUpdate(userData._id, userData, { new: true })
+        const updatedUser = User.findByIdAndUpdate(userData._id, userData, { new: true })
         return updatedUser
     }
-}
+    updateMany(data) {
+        if (!data || !data.query || typeof data.query !== 'object') {
+            throw new Error('Нет данных')
+        }
 
+        const { filter = {}, query, options = {} } = data
+        const res = User.updateMany(filter, query, options)
+        return res
+    }
+}
 
 export default new UserService()

@@ -2,18 +2,6 @@ import gameService from "./gameService.js"
 
 
 class GameController {
-    async getAll(req, res) {
-        try {
-            const { chatId } = req.params
-            const chat = await gameService.getAll(chatId)
-            const { gameDays } = chat.at(0)
-
-            return res.json(gameDays)
-        } catch (e) {
-            res.status(500).json(e)
-        }
-    }
-
     async getOne(req, res) {
         try {
             const { id } = req.params

@@ -1,20 +1,20 @@
-import PrefService from "./prefService.js"
+import ChatService from "./chatService.js"
 
 
-class PrefController {
-    async getSettings(req, res) {
+class ChatController {
+    async getChat(req, res) {
         try {
             const { chatId } = req.params
-            const settings = await PrefService.getSettings(chatId)
+            const settings = await ChatService.getSettings(chatId)
             return res.json(settings)
         } catch (error) {
             res.status(500).json(error)
         }
     }
 
-    async setSettings(req, res) {
+    async setChat(req, res) {
         try {
-            const updatedSettings = await PrefService.setSettings(req.body)
+            const updatedSettings = await ChatService.setSettings(req.body)
             return res.json(updatedSettings)
         } catch (error) {
             res.status(500).json(error)
@@ -23,4 +23,4 @@ class PrefController {
 
 }
 
-export default new PrefController()
+export default new ChatController()
