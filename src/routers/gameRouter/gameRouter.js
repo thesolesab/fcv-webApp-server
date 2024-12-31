@@ -1,11 +1,11 @@
 import { Router } from "express";
-import gameController from "./gameController.js";
+import GameController from "./gameController.js";
 import gameMiddleware from "../../middlewares/gameMiddleware.js";
 
 const gameRouter = new Router()
 
-gameRouter.get('/:id', gameController.getOne)
-gameRouter.put('/update', gameMiddleware, gameController.update)
+gameRouter.get('/:id', GameController.getOne)
+gameRouter.put('/update', gameMiddleware, GameController.update)
 
 
 export default gameRouter

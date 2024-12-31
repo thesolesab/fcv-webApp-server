@@ -1,5 +1,6 @@
 import { Router } from "express";
 import ChatController from "./chatController.js";
+import chatMiddleware from "../../middlewares/chatMiddleware.js";
 
 const chatRouter = new Router()
 

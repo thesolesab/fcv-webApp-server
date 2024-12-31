@@ -1,4 +1,5 @@
 import GameDay from "../../models/GameDay.js"
+import getNextDateGame from "../../utils/nextGame.js"
 
 
 class GameService {
@@ -26,7 +27,6 @@ class GameService {
         const updatedGameDay = GameDay.findByIdAndUpdate(gameDay._id, gameDay, { new: true })
         return updatedGameDay
     }
-
 }
 
 export default new GameService()

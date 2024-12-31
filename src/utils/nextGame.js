@@ -1,4 +1,4 @@
-const getNextDateGame = (day = 4, time = 17) => {
+const getNextDateGame = (day = 4, time = '17:00') => {
     const now = new Date()
 
     const options = {
@@ -10,7 +10,7 @@ const getNextDateGame = (day = 4, time = 17) => {
 
     const res = Math.abs(now.getDay() - 7 - day) > 7 ? Math.abs(now.getDay() - day) : Math.abs(now.getDay() - 7 - day)
 
-    if (now.getDay() != day || now.getDay() === day && now.getHours() > time + 2) {
+    if (now.getDay() != day || now.getDay() === day && now.getHours() > +time.split(':')[0] + 2 && now.getMinutes() > +time.split(':')[1]) {
         now.setDate(now.getDate() + res)
     }
 

@@ -1,10 +1,9 @@
 import GameDay from "../models/GameDay.js"
 
-const addNewGameDay = async (chat, nextGameDate, user) => {
+const addNewGameDay = async (chat, nextGameDate) => {
     const nextGameDay = new GameDay(
         {
             date: nextGameDate,
-            players: [user]
         }
     )
 
